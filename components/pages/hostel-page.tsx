@@ -3,6 +3,7 @@
 import { useState } from "react"
 import MessFeedbackModal from "@/components/mess-feedback-modal"
 import MessMenuModal from "@/components/mess-menu-modal"
+import HostelRulesNoticesModal from "@/components/hostel-rules-notices-modal"
 
 interface HostelPageProps {
   onRaiseIssue?: (category: string) => void
@@ -11,6 +12,7 @@ interface HostelPageProps {
 export default function HostelPage({ onRaiseIssue }: HostelPageProps) {
   const [showMessFeedback, setShowMessFeedback] = useState(false)
   const [showMessMenu, setShowMessMenu] = useState(false)
+  const [showHostelRulesNotices, setShowHostelRulesNotices] = useState(false)
 
   return (
     <section className="page active">
@@ -67,7 +69,19 @@ export default function HostelPage({ onRaiseIssue }: HostelPageProps) {
             <h3>Mess Menu</h3>
             <p className="muted">View weekly meal plans for breakfast, lunch, snacks and dinner.</p>
           </div>
-          <div className="card">
+          <div
+            className="card"
+            onClick={() => setShowHostelRulesNotices(true)}
+            style={{ cursor: "pointer", transition: "all 0.2s ease" }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-2px)"
+              e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.2)"
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translateY(0)"
+              e.currentTarget.style.boxShadow = ""
+            }}
+          >
             <h3>Hostel Rules & Notices</h3>
             <p className="muted">Policy documents, late-night permissions and campus guidelines.</p>
           </div>
@@ -76,6 +90,7 @@ export default function HostelPage({ onRaiseIssue }: HostelPageProps) {
 
       <MessFeedbackModal isOpen={showMessFeedback} onClose={() => setShowMessFeedback(false)} />
       <MessMenuModal isOpen={showMessMenu} onClose={() => setShowMessMenu(false)} />
+      <HostelRulesNoticesModal isOpen={showHostelRulesNotices} onClose={() => setShowHostelRulesNotices(false)} />
     </section>
   )
 }
