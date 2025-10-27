@@ -76,7 +76,7 @@ export default function FacultyDirectoryModal({ isOpen, onClose }: FacultyDirect
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        backgroundColor: "rgba(0, 0, 0, 0.6)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -86,14 +86,15 @@ export default function FacultyDirectoryModal({ isOpen, onClose }: FacultyDirect
     >
       <div
         style={{
-          backgroundColor: "white",
+          backgroundColor: "#1a2a3a",
           borderRadius: "12px",
           width: "90%",
           maxWidth: "500px",
           maxHeight: "80vh",
           overflow: "auto",
-          boxShadow: "0 20px 60px rgba(0, 0, 0, 0.3)",
+          boxShadow: "0 20px 60px rgba(0, 0, 0, 0.5)",
           animation: "slideUp 0.3s ease-out",
+          border: "1px solid rgba(45, 156, 219, 0.2)",
         }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -104,11 +105,11 @@ export default function FacultyDirectoryModal({ isOpen, onClose }: FacultyDirect
             justifyContent: "space-between",
             alignItems: "center",
             padding: "20px",
-            borderBottom: "1px solid #e5e7eb",
-            backgroundColor: "#f9fafb",
+            borderBottom: "1px solid rgba(45, 156, 219, 0.2)",
+            backgroundColor: "rgba(45, 156, 219, 0.1)",
           }}
         >
-          <h2 style={{ margin: 0, fontSize: "20px", fontWeight: "600" }}>Faculty Directory</h2>
+          <h2 style={{ margin: 0, fontSize: "20px", fontWeight: "600", color: "#e0e7ff" }}>Faculty Directory</h2>
           <button
             onClick={onClose}
             style={{
@@ -119,6 +120,7 @@ export default function FacultyDirectoryModal({ isOpen, onClose }: FacultyDirect
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              color: "#2d9cdb",
             }}
           >
             <X size={24} />
@@ -126,7 +128,14 @@ export default function FacultyDirectoryModal({ isOpen, onClose }: FacultyDirect
         </div>
 
         {/* Department Tabs */}
-        <div style={{ display: "flex", gap: "8px", padding: "16px 24px", borderBottom: "1px solid #e5e7eb" }}>
+        <div
+          style={{
+            display: "flex",
+            gap: "8px",
+            padding: "16px 24px",
+            borderBottom: "1px solid rgba(45, 156, 219, 0.2)",
+          }}
+        >
           {["CSE", "ECE"].map((dept) => (
             <button
               key={dept}
@@ -135,8 +144,8 @@ export default function FacultyDirectoryModal({ isOpen, onClose }: FacultyDirect
                 padding: "8px 16px",
                 borderRadius: "6px",
                 border: "none",
-                backgroundColor: selectedDepartment === dept ? "#3b82f6" : "#f3f4f6",
-                color: selectedDepartment === dept ? "white" : "#1f2937",
+                backgroundColor: selectedDepartment === dept ? "#2d9cdb" : "rgba(45, 156, 219, 0.1)",
+                color: selectedDepartment === dept ? "white" : "#a0aec0",
                 cursor: "pointer",
                 fontWeight: selectedDepartment === dept ? "600" : "500",
                 fontSize: "13px",
@@ -156,18 +165,18 @@ export default function FacultyDirectoryModal({ isOpen, onClose }: FacultyDirect
                 key={faculty.id}
                 style={{
                   padding: "16px",
-                  backgroundColor: "#f3f4f6",
+                  backgroundColor: "rgba(45, 156, 219, 0.08)",
                   borderRadius: "8px",
-                  borderLeft: "4px solid #3b82f6",
+                  borderLeft: "4px solid #2d9cdb",
                 }}
               >
-                <h3 style={{ margin: "0 0 8px 0", fontSize: "14px", fontWeight: "600", color: "#1f2937" }}>
+                <h3 style={{ margin: "0 0 8px 0", fontSize: "14px", fontWeight: "600", color: "#e0e7ff" }}>
                   {faculty.name}
                 </h3>
-                <p style={{ margin: "4px 0", fontSize: "13px", color: "#6b7280" }}>
+                <p style={{ margin: "4px 0", fontSize: "13px", color: "#cbd5e1" }}>
                   <strong>Position:</strong> {faculty.position}
                 </p>
-                <p style={{ margin: "4px 0", fontSize: "13px", color: "#6b7280" }}>
+                <p style={{ margin: "4px 0", fontSize: "13px", color: "#cbd5e1" }}>
                   <strong>Phone:</strong> {faculty.phone}
                 </p>
               </div>
@@ -179,14 +188,15 @@ export default function FacultyDirectoryModal({ isOpen, onClose }: FacultyDirect
             style={{
               marginTop: "20px",
               padding: "12px",
-              backgroundColor: "#fef3c7",
+              backgroundColor: "rgba(45, 156, 219, 0.15)",
               borderRadius: "8px",
               fontSize: "12px",
-              color: "#92400e",
+              color: "#a0aec0",
+              borderLeft: "3px solid #2d9cdb",
             }}
           >
-            <strong>Note:</strong> Phone numbers are masked for privacy. Contact the department office for complete
-            details.
+            <strong style={{ color: "#2d9cdb" }}>Note:</strong> Phone numbers are masked for privacy. Contact the
+            department office for complete details.
           </div>
         </div>
       </div>

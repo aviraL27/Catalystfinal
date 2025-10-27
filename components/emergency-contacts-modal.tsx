@@ -56,7 +56,7 @@ export default function EmergencyContactsModal({ isOpen, onClose }: EmergencyCon
     >
       <div
         style={{
-          backgroundColor: "white",
+          backgroundColor: "#1a2a3a",
           borderRadius: "12px",
           width: "90%",
           maxWidth: "500px",
@@ -64,6 +64,7 @@ export default function EmergencyContactsModal({ isOpen, onClose }: EmergencyCon
           overflow: "auto",
           boxShadow: "0 20px 60px rgba(0, 0, 0, 0.3)",
           animation: "slideUp 0.3s ease-out",
+          border: "1px solid rgba(45, 156, 219, 0.2)",
         }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -74,11 +75,11 @@ export default function EmergencyContactsModal({ isOpen, onClose }: EmergencyCon
             justifyContent: "space-between",
             alignItems: "center",
             padding: "20px",
-            borderBottom: "1px solid #e5e7eb",
-            backgroundColor: "#f9fafb",
+            borderBottom: "1px solid rgba(45, 156, 219, 0.2)",
+            backgroundColor: "rgba(45, 156, 219, 0.1)",
           }}
         >
-          <h2 style={{ margin: 0, fontSize: "20px", fontWeight: "600" }}>Emergency Contacts</h2>
+          <h2 style={{ margin: 0, fontSize: "20px", fontWeight: "600", color: "#2d9cdb" }}>Emergency Contacts</h2>
           <button
             onClick={onClose}
             style={{
@@ -89,6 +90,7 @@ export default function EmergencyContactsModal({ isOpen, onClose }: EmergencyCon
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              color: "#cbd5e1",
             }}
           >
             <X size={24} />
@@ -97,7 +99,7 @@ export default function EmergencyContactsModal({ isOpen, onClose }: EmergencyCon
 
         {/* Content */}
         <div style={{ padding: "24px" }}>
-          <p style={{ color: "#6b7280", marginBottom: "20px", fontSize: "14px" }}>
+          <p style={{ color: "#cbd5e1", marginBottom: "20px", fontSize: "14px" }}>
             Important contact numbers for hostel-related emergencies and support:
           </p>
 
@@ -107,18 +109,27 @@ export default function EmergencyContactsModal({ isOpen, onClose }: EmergencyCon
                 key={index}
                 style={{
                   padding: "16px",
-                  backgroundColor: "#f3f4f6",
+                  backgroundColor: "rgba(45, 156, 219, 0.1)",
                   borderRadius: "8px",
-                  borderLeft: "4px solid #3b82f6",
+                  borderLeft: "4px solid #2d9cdb",
+                  transition: "all 0.3s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "rgba(45, 156, 219, 0.15)"
+                  e.currentTarget.style.transform = "translateX(4px)"
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "rgba(45, 156, 219, 0.1)"
+                  e.currentTarget.style.transform = "translateX(0)"
                 }}
               >
-                <h3 style={{ margin: "0 0 8px 0", fontSize: "14px", fontWeight: "600", color: "#1f2937" }}>
+                <h3 style={{ margin: "0 0 8px 0", fontSize: "14px", fontWeight: "600", color: "#2d9cdb" }}>
                   {contact.title}
                 </h3>
-                <p style={{ margin: "4px 0", fontSize: "13px", color: "#6b7280" }}>
+                <p style={{ margin: "4px 0", fontSize: "13px", color: "#cbd5e1" }}>
                   <strong>Name:</strong> {contact.name}
                 </p>
-                <p style={{ margin: "4px 0", fontSize: "13px", color: "#6b7280" }}>
+                <p style={{ margin: "4px 0", fontSize: "13px", color: "#cbd5e1" }}>
                   <strong>Phone:</strong> {contact.phone}
                 </p>
               </div>
@@ -130,13 +141,15 @@ export default function EmergencyContactsModal({ isOpen, onClose }: EmergencyCon
             style={{
               marginTop: "20px",
               padding: "12px",
-              backgroundColor: "#fef3c7",
+              backgroundColor: "rgba(45, 156, 219, 0.15)",
               borderRadius: "8px",
               fontSize: "12px",
-              color: "#92400e",
+              color: "#cbd5e1",
+              borderLeft: "3px solid #2d9cdb",
             }}
           >
-            <strong>Note:</strong> Phone numbers are masked for privacy. Contact the hostel office for complete details.
+            <strong style={{ color: "#2d9cdb" }}>Note:</strong> Phone numbers are masked for privacy. Contact the hostel
+            office for complete details.
           </div>
         </div>
       </div>

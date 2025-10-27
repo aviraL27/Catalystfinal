@@ -52,7 +52,10 @@ export default function MessFeedbackModal({ isOpen, onClose }: MessFeedbackModal
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <div className="modal-header">
+        <div
+          className="modal-header"
+          style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}
+        >
           <h2>Mess Feedback</h2>
           <button onClick={onClose} className="modal-close">
             <X size={20} />
